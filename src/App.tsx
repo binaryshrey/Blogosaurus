@@ -1,13 +1,17 @@
 import React from 'react';
 import Home from './components/home/Home';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PageNotFound from './components/not-found/PageNotFound';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
