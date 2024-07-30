@@ -4,6 +4,7 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/logo.svg';
 import logoDark from '../../assets/logo-dark.svg';
+import blogo from '../../assets/blogo.png';
 
 import { Link } from 'react-router-dom';
 
@@ -122,7 +123,7 @@ const HeroSection = () => {
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <img src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="App screenshot" width={2432} height={1442} className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10" />
+            <img src={blogo} alt="App screenshot" width={2432} height={1442} className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10" />
           </div>
         </div>
       </div>
