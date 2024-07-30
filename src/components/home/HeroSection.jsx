@@ -4,6 +4,7 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/logo.svg';
 import logoDark from '../../assets/logo-dark.svg';
+import blogo from '../../assets/blogo.png';
 
 import { Link } from 'react-router-dom';
 
@@ -50,7 +51,7 @@ const HeroSection = () => {
             <a href="https://github.com/binaryshrey/Blogosaurus" className="text-sm font-semibold leading-6 text-white">
               Github
             </a>
-            <a href="https://blogosaurus-inc.vercel.app/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+            <a href="https://blogosaurus.vercel.app/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
               Examples
             </a>
             <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="text-sm font-semibold leading-6 text-white">
@@ -115,14 +116,14 @@ const HeroSection = () => {
             <a href="/login" className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
               Get started
             </a>
-            <a href="https://blogosaurus-inc.vercel.app/" className="text-base font-semibold leading-7 text-white">
+            <a href="https://blogosaurus.vercel.app/" className="text-base font-semibold leading-7 text-white">
               Learn more <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <img src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="App screenshot" width={2432} height={1442} className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10" />
+            <img src={blogo} alt="App screenshot" width={2432} height={1442} className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10" />
           </div>
         </div>
       </div>
