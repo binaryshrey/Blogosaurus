@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import logo from '../../assets/logo.svg';
-import { Bars3Icon, CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import { UserAuth } from '../../hooks/AuthContext';
@@ -71,14 +71,13 @@ const Dashboard = ({ Component, board, collections, settings }) => {
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
-              <div className="w-14 flex-shrink-0">{/* Force sidebar to shrink to fit close icon */}</div>
+              <div className="w-14 flex-shrink-0"></div>
             </div>
           </Dialog>
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
         <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex min-h-0 flex-1 flex-col bg-gray-800">
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex flex-shrink-0 items-center px-4">
@@ -119,10 +118,10 @@ const Dashboard = ({ Component, board, collections, settings }) => {
           <main className="flex-1">
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-                <div className="py-4 hidden lg:block">
+                <div className="hidden lg:block">
                   <Component />
                 </div>
-                <div className="py-2 overflow-y-auto lg:hidden">
+                <div className="overflow-y-auto lg:hidden">
                   <Component />
                 </div>
               </div>
