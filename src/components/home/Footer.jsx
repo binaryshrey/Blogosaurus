@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const navigation = [
   { name: 'LinkedIn', href: 'https://in.linkedin.com/in/shreyanshsaurabh' },
   { name: 'Github', href: 'https://github.com/binaryshrey/Blogosaurus' },
-  { name: 'Public', href: 'https://blogosaurus-inc.vercel.app/' },
+  { name: 'Public', href: 'https://blogosaurus.vercel.app/' },
 ];
 
 const Footer = () => {
