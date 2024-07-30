@@ -104,42 +104,6 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="flex-none">
-            <div className="text-sm font-medium text-white">&copy; 2024 Chronos Inc.</div>
-          </div>
-        </div>
-        <div className="relative isolate px-6 ">
-          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-44">
-            <div className="text-center">
-              <div>
-                <div className="flex items-center justify-center flex-col mt-8">
-                  <img src={login} alt="Login" />
-                  <p className=" text-2xl mb-12 mt-4 text-white">Log into your account.</p>
-                </div>
-
-                <div className=" flex flex-col items-center justify-center p-8 space-y-2 items-center  ">
-                  <button onClick={handleGoogleSignIn} type="button" className="text-black bg-white focus:ring-4 font-medium rounded-full text-sm px-8 py-2.5 text-center inline-flex items-center border">
-                    <img src={google} alt="Google" className="h-6 w-6 mr-4" />
-                    Sign in with Google
-                  </button>
-
-                  <button onClick={handleGithubSignIn} type="button" className="text-black bg-white focus:ring-4 font-medium rounded-full text-sm px-8 py-2.5 text-center inline-flex items-center border">
-                    <img src={github} alt="github" className="h-6 w-6 mr-4" />
-                    Sign in with Github
-                  </button>
-                </div>
-
-                <div className="m-12 flex  justify-center">
-                  <p className="text-white">
-                    Don't have an account?{' '}
-                    <Link to="/signup">
-                      <span className="text-white">Create one.</span>
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import PageNotFound from './components/not-found/PageNotFound';
 import { AuthContextProvider } from './hooks/AuthContext';
 
 const Login = React.lazy(() => import('./components/login/Login'));
+const Register = React.lazy(() => import('./components/register/Register'));
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
               element={
                 <React.Suspense fallback={<>Login</>}>
                   <Login />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <React.Suspense fallback={<>Register</>}>
+                  <Register />
                 </React.Suspense>
               }
             />
