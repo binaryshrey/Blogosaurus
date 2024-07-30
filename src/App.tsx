@@ -10,6 +10,7 @@ const Login = React.lazy(() => import('./components/login/Login'));
 const Register = React.lazy(() => import('./components/register/Register'));
 const Profile = React.lazy(() => import('./components/profile/Profile'));
 const Blogs = React.lazy(() => import('./components/dashboard/Blogs'));
+const BlogEditor = React.lazy(() => import('./components/editor/BlogEditor'));
 const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
 
 function App() {
@@ -52,6 +53,16 @@ function App() {
                 <React.Suspense fallback={<>Dashboard</>}>
                   <ProtectedRoute>
                     <Dashboard Component={Blogs} board={true} collections={false} settings={false} />
+                  </ProtectedRoute>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/draft/:draftID"
+              element={
+                <React.Suspense fallback={<>New Draft</>}>
+                  <ProtectedRoute>
+                    <BlogEditor />
                   </ProtectedRoute>
                 </React.Suspense>
               }

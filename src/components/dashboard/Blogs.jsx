@@ -2,8 +2,11 @@ import React from 'react';
 import empty from '../../assets/empty.png';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 const Blogs = () => {
+  let newDraftURI = `/draft/${uuidv4()}`;
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -18,10 +21,12 @@ const Blogs = () => {
                 <SearchIcon className="pb-2" />
               </button>
             </div>
-            <button className="px-2 py-2.5 m-2 rounded-md bg-gray-700 text-white inline-flex items-center">
-              <AddIcon fontSize="small" />
-              <span className="text-sm">Add New Blog</span>
-            </button>
+            <Link to={newDraftURI}>
+              <button className="px-2 py-2.5 m-2 rounded-md bg-gray-700 text-white inline-flex items-center">
+                <AddIcon fontSize="small" />
+                <span className="text-sm">Add New Blog</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
