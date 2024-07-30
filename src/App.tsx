@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 const Login = React.lazy(() => import('./components/login/Login'));
 const Register = React.lazy(() => import('./components/register/Register'));
 const Profile = React.lazy(() => import('./components/profile/Profile'));
+const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
 
 function App() {
   return (
@@ -39,7 +40,17 @@ function App() {
               element={
                 <React.Suspense fallback={<>Profile</>}>
                   <ProtectedRoute>
-                    <Profile />
+                    <Dashboard Component={Profile} board={true} collections={false} settings={false} />
+                  </ProtectedRoute>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <React.Suspense fallback={<>Dashboard</>}>
+                  <ProtectedRoute>
+                    <Dashboard Component={Profile} board={true} collections={false} settings={false} />
                   </ProtectedRoute>
                 </React.Suspense>
               }
