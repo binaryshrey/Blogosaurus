@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as React from 'react';
 import { UserAuth } from '../../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { saveUserDataIfNewUser } from '../../utils/utils';
 
 const Login = () => {
   const { googleSignIn, githubSignIn, user } = UserAuth();
@@ -29,9 +30,9 @@ const Login = () => {
 
   React.useEffect(() => {
     if (user != null) {
-      //   saveUserDataIfNewUser(user);
+      saveUserDataIfNewUser(user);
       localStorage.setItem('email', JSON.stringify(user.email));
-      navigate('/dashboard');
+      navigate('/profile');
     }
   }, [user]);
 
