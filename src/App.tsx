@@ -1,7 +1,16 @@
-import React from "react";
+import React from 'react';
+import Home from './components/home/Home';
+
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-	return <div>Blogosaurus</div>;
+  return (
+    <>
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
