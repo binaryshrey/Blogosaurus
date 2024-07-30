@@ -47,10 +47,12 @@ const HeroSection = () => {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            <a href="https://github.com/binaryshrey/Chronos" className="text-sm font-semibold leading-6 text-white">
+            <a href="https://github.com/binaryshrey/Blogosaurus" className="text-sm font-semibold leading-6 text-white">
               Github
             </a>
-            <a className="text-sm font-semibold leading-6 text-white cursor-pointer">Examples</a>
+            <a href="https://blogosaurus-inc.vercel.app/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+              Examples
+            </a>
             <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="text-sm font-semibold leading-6 text-white">
               Contact
             </a>
@@ -99,7 +101,7 @@ const HeroSection = () => {
       <div className=" max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:py-40 lg:px-8">
         <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
           <div>
-            <a href="#" className="inline-flex space-x-6">
+            <a href="https://github.com/binaryshrey/Blogosaurus" className="inline-flex space-x-6">
               <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">What's new</span>
               <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
                 <span>Introducing v1.0</span>
@@ -110,10 +112,10 @@ const HeroSection = () => {
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Publish blogs at the speed of light</h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">Instantly share your thoughts with our blazing-fast blogging platform. Write, publish, and connect effortlessly—at the speed of light.</p>
           <div className="mt-10 flex items-center gap-x-6">
-            <a href="#" className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
+            <a href="/login" className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
               Get started
             </a>
-            <a href="#" className="text-base font-semibold leading-7 text-white">
+            <a href="https://blogosaurus-inc.vercel.app/" className="text-base font-semibold leading-7 text-white">
               Learn more <span aria-hidden="true">→</span>
             </a>
           </div>
