@@ -50,7 +50,7 @@ function App() {
               element={
                 <React.Suspense fallback={<>Profile</>}>
                   <ProtectedRoute>
-                    <Dashboard Component={Profile} board={true} collections={false} analytics={false} settings={false} />
+                    <Dashboard Component={Profile} board={false} collections={false} analytics={false} settings={false} />
                   </ProtectedRoute>
                 </React.Suspense>
               }
