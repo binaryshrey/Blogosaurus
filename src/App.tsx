@@ -32,7 +32,7 @@ function App() {
             <Route
               path="/login"
               element={
-                <React.Suspense fallback={<>Login</>}>
+                <React.Suspense fallback={<></>}>
                   <Login />
                 </React.Suspense>
               }
@@ -40,7 +40,7 @@ function App() {
             <Route
               path="/signup"
               element={
-                <React.Suspense fallback={<>Register</>}>
+                <React.Suspense fallback={<></>}>
                   <Register />
                 </React.Suspense>
               }
@@ -48,7 +48,7 @@ function App() {
             <Route
               path="/profile"
               element={
-                <React.Suspense fallback={<>Profile</>}>
+                <React.Suspense fallback={<></>}>
                   <ProtectedRoute>
                     <Dashboard Component={Profile} board={false} collections={false} analytics={false} settings={false} />
                   </ProtectedRoute>
@@ -58,7 +58,7 @@ function App() {
             <Route
               path="/dashboard"
               element={
-                <React.Suspense fallback={<>Blogs</>}>
+                <React.Suspense fallback={<></>}>
                   <ProtectedRoute>
                     <ThemeProvider>
                       <Dashboard Component={Blogs} board={true} collections={false} analytics={false} settings={false} />
@@ -70,7 +70,7 @@ function App() {
             <Route
               path="/analytics"
               element={
-                <React.Suspense fallback={<>analytics</>}>
+                <React.Suspense fallback={<></>}>
                   <ProtectedRoute>
                     <ThemeProvider>
                       <Dashboard Component={Analytics} board={false} collections={false} analytics={true} settings={false} />
@@ -82,7 +82,7 @@ function App() {
             <Route
               path="/settings"
               element={
-                <React.Suspense fallback={<>settings</>}>
+                <React.Suspense fallback={<></>}>
                   <ProtectedRoute>
                     <ThemeProvider>
                       <Dashboard Component={Settings} board={false} collections={false} analytics={false} settings={true} />
@@ -94,7 +94,7 @@ function App() {
             <Route
               path="/draft/:draftID"
               element={
-                <React.Suspense fallback={<>New Draft</>}>
+                <React.Suspense fallback={<></>}>
                   <ProtectedRoute>
                     <BlogEditor />
                   </ProtectedRoute>
@@ -104,7 +104,7 @@ function App() {
             <Route
               path="/blog/:blogID"
               element={
-                <React.Suspense fallback={<>Blog</>}>
+                <React.Suspense fallback={<></>}>
                   <BlogViewer />
                 </React.Suspense>
               }
@@ -112,7 +112,7 @@ function App() {
             <Route
               path="/examples"
               element={
-                <React.Suspense fallback={<>Collections</>}>
+                <React.Suspense fallback={<></>}>
                   <Collections />
                 </React.Suspense>
               }
@@ -120,7 +120,7 @@ function App() {
             <Route
               path="/posts/dynamic-routing"
               element={
-                <React.Suspense fallback={<>Blog1</>}>
+                <React.Suspense fallback={<></>}>
                   <Blog1 />
                 </React.Suspense>
               }
@@ -128,7 +128,7 @@ function App() {
             <Route
               path="/posts/pre-render"
               element={
-                <React.Suspense fallback={<>Blog2</>}>
+                <React.Suspense fallback={<></>}>
                   <Blog2 />
                 </React.Suspense>
               }
@@ -136,7 +136,7 @@ function App() {
             <Route
               path="/posts/static-generation"
               element={
-                <React.Suspense fallback={<>Blog3</>}>
+                <React.Suspense fallback={<></>}>
                   <Blog3 />
                 </React.Suspense>
               }
