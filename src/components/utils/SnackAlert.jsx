@@ -8,7 +8,7 @@ const SnackAlert = ({ open, message, severity, onClose }) => {
     <Snackbar
       open={open}
       variant="filled"
-      autoHideDuration={3000}
+      autoHideDuration={5000}
       onClose={onClose}
       action={
         <Button color="inherit" onClick={onClose}>

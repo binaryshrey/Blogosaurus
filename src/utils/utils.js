@@ -130,3 +130,26 @@ export const getPublishedBlogsFromFirestore = async (userEmail) => {
     console.error('Error getting blogs:', error);
   }
 }
+
+
+export const getPublishedBlogFromFirestoreWithoutSignIn = async (blogID) => {
+  
+  try {
+    let blogs = [];
+    const blogsCollection = collection(db, 'blogs');
+    const blogsSnapshot = query(blogsCollection, where("blogID", "==", blogID))
+    const doc_refs = await getDocs(blogsSnapshot);
+
+    doc_refs.forEach((doc) => {
+
+      blogs.push({
+        ...doc.data()
+      });
+    });
+    const publishedBlogs = blogs.filter(blog => blog.blogStatus == 'Published');
+    return publishedBlogs[0].blogContents;
+    
+  } catch (error) {
+    console.error('Error getting blogs:', error);
+  }
+}

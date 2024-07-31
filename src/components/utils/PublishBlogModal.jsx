@@ -15,6 +15,7 @@ const PublishBlogModal = ({ open, handleClose, draftData, draftID }) => {
   const { logOut, user } = UserAuth();
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   const handleSnackbarOpen = () => {
     setSnackbarOpen(true);
@@ -23,7 +24,7 @@ const PublishBlogModal = ({ open, handleClose, draftData, draftID }) => {
     setSnackbarOpen(false);
   };
 
-  const saveBlogAsDraft = (event) => {
+  const publishBlog = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
@@ -40,6 +41,7 @@ const PublishBlogModal = ({ open, handleClose, draftData, draftID }) => {
       authorEmail: user.email,
       timestamp: Date.now(),
     });
+    setSnackbarMessage(`Published successfully! - https://blogosaurus.vercel.app/blog/${draftID}`);
     handleClose();
   };
 
@@ -50,7 +52,7 @@ const PublishBlogModal = ({ open, handleClose, draftData, draftID }) => {
         onClose={handleClose}
         PaperProps={{
           component: 'form',
-          onSubmit: saveBlogAsDraft,
+          onSubmit: publishBlog,
         }}
       >
         <DialogTitle>Publish Blog</DialogTitle>
@@ -67,7 +69,7 @@ const PublishBlogModal = ({ open, handleClose, draftData, draftID }) => {
           <Button type="submit">Publish</Button>
         </DialogActions>
       </Dialog>
-      <SnackAlert open={snackbarOpen} message="Published successfully!" severity="success" onClose={handleSnackbarClose} />
+      <SnackAlert open={snackbarOpen} message={snackbarMessage} severity="success" onClose={handleSnackbarClose} />
     </>
   );
 };
