@@ -7,18 +7,20 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import { UserAuth } from '../../hooks/AuthContext';
 import { Link } from 'react-router-dom';
 import BookIcon from '@mui/icons-material/Book';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Dashboard = ({ Component, board, collections, settings }) => {
+const Dashboard = ({ Component, board, collections, analytics, settings }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { googleSignIn, user } = UserAuth();
 
   const navigation = [
     { name: 'Blogs', href: '/dashboard', icon: HomeRoundedIcon, current: board },
-    { name: 'Collections', href: '/collections', icon: BookIcon, current: collections },
+    { name: 'Collections', href: '/examples', icon: BookIcon, current: collections },
+    { name: 'Analytics', href: '/analytics', icon: InsertChartIcon, current: analytics },
     { name: 'Settings', href: '/settings', icon: SettingsRoundedIcon, current: settings },
   ];
 
