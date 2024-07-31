@@ -42,7 +42,7 @@ const BlogsDrafts = () => {
           {blogs.length !== 0 &&
             !loading &&
             blogs.map((blog) => (
-              <div key={blog.blogID} className="mr-4 mt-4">
+              <div key={blog.blogTimestamp} className="mr-4 mt-4">
                 <BlogCard blog={blog} />
               </div>
             ))}

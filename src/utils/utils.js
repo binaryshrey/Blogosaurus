@@ -52,6 +52,7 @@ export const saveBlogAsDraftToFirestore = async (blog) => {
           blogAuthorPhoto: blog.authorPhoto,
           blogTimestamp : blog.timestamp,
           blogAuthorEmail: blog.authorEmail,
+          blogStatus: 'Draft'
       }, { merge: true });
       console.log('Successfully saved blog as draft!');
   }

@@ -8,6 +8,7 @@ import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
 import PublicIcon from '@mui/icons-material/Public';
 import BlogsDrafts from './BlogsDrafts';
 import BlogsPublished from './BlogsPublished';
+import { EDITOR_DEFAULT_VALUE } from './EditorConfig';
 
 const Blogs = () => {
   let newDraftURI = `/draft/${uuidv4()}`;
@@ -25,6 +26,11 @@ const Blogs = () => {
       desc: <BlogsPublished />,
     },
   ];
+
+  const openNewDraft = () => {
+    localStorage.setItem('draftEditor', JSON.stringify(EDITOR_DEFAULT_VALUE));
+    window.open(newDraftURI, '_blank');
+  };
 
   return (
     <div>
@@ -50,12 +56,11 @@ const Blogs = () => {
                   <SearchIcon className="pb-2" />
                 </button>
               </div>
-              <Link to={newDraftURI} target="_blank" rel="noopener noreferrer">
-                <button className="px-2 py-2.5 m-2 rounded-md bg-gray-700 text-white inline-flex items-center">
-                  <AddIcon fontSize="small" />
-                  <span className="text-sm">Add New Blog</span>
-                </button>
-              </Link>
+
+              <button onClick={openNewDraft} className="px-2 py-2.5 m-2 rounded-md bg-gray-700 text-white inline-flex items-center">
+                <AddIcon fontSize="small" />
+                <span className="text-sm">Add New Blog</span>
+              </button>
             </div>
           </div>
         </div>

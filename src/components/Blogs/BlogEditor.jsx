@@ -10,7 +10,7 @@ import SaveBlogModal from '../utils/SaveBlogModal';
 const BlogEditor = () => {
   const { draftID } = useParams();
   const [previewMode, setPreviewMode] = useState(false);
-  const [draftData, setDraftData] = useState();
+  const [draftData, setDraftData] = useState(localStorage.getItem('draftEditor') ? JSON.parse(localStorage.getItem('draftEditor')) : {});
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [openSaveBlogModal, setOpenSaveBlogModal] = React.useState(false);
 
@@ -83,7 +83,7 @@ const BlogEditor = () => {
         </div>
         <div>
           {!previewMode ? (
-            <ReactEditorJS placeholder='Type "/" for commands...' onInitialize={handleInitialize} tools={EDITOR_JS_TOOLS} defaultValue={EDITOR_DEFAULT_VALUE} />
+            <ReactEditorJS placeholder='Type "/" for commands...' onInitialize={handleInitialize} tools={EDITOR_JS_TOOLS} defaultValue={draftData} />
           ) : (
             <div className="mx-4 sm:mx-8 lg:mx-12 xl:mx-80">
               <Parser data={draftData} />

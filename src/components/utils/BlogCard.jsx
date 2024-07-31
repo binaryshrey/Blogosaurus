@@ -6,11 +6,18 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import blogBG from '../../assets/blogBG.png';
 import Paper from '@mui/material/Paper';
+import { v4 as uuidv4 } from 'uuid';
 
 const BlogCard = ({ blog }) => {
-  console.log(blog);
+  let blogDraftURI = `/draft/${uuidv4()}`;
+
+  const openDraft = () => {
+    localStorage.setItem('draftEditor', JSON.stringify(blog.blogContents));
+    window.open(blogDraftURI, '_blank');
+  };
+
   return (
-    <Paper elevation={1}>
+    <Paper elevation={1} onClick={openDraft}>
       <Card sx={{ maxWidth: 320, widht: 320 }}>
         <CardActionArea>
           <CardMedia component="img" sx={{ height: 200, width: 320 }} image={blogBG} alt="blog media" />
