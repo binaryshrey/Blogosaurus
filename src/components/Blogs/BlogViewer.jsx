@@ -8,7 +8,7 @@ const BlogViewer = () => {
   const [draftData, setDraftData] = useState(localStorage.getItem('draftEditor') ? JSON.parse(localStorage.getItem('draftEditor')) : {});
 
   return (
-    <>
+    <div>
       <div className="m-4">
         <div className="flex justify-between">
           <div>
@@ -20,7 +20,7 @@ const BlogViewer = () => {
           <Parser data={draftData} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
