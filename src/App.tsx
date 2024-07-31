@@ -10,8 +10,8 @@ import { ThemeProvider } from '@material-tailwind/react';
 const Login = React.lazy(() => import('./components/login/Login'));
 const Register = React.lazy(() => import('./components/register/Register'));
 const Profile = React.lazy(() => import('./components/profile/Profile'));
-const Blogs = React.lazy(() => import('./components/Blogs/Blogs'));
-const BlogEditor = React.lazy(() => import('./components/editor/BlogEditor'));
+const Blogs = React.lazy(() => import('./components/blogs/Blogs'));
+const BlogEditor = React.lazy(() => import('./components/blogs/BlogEditor'));
 const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
 
 function App() {
