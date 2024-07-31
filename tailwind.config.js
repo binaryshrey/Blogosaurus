@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
 const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-module.exports = withMT({
+module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -32,4 +31,4 @@ module.exports = withMT({
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio')
   ],
-})
+}

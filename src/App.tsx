@@ -14,6 +14,10 @@ const Blogs = React.lazy(() => import('./components/blogs/Blogs'));
 const BlogEditor = React.lazy(() => import('./components/blogs/BlogEditor'));
 const BlogViewer = React.lazy(() => import('./components/blogs/BlogViewer'));
 const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
+const Collections = React.lazy(() => import('./components/examples/Collections'));
+const Blog1 = React.lazy(() => import('./components/examples/Blog1'));
+const Blog2 = React.lazy(() => import('./components/examples/Blog2'));
+const Blog3 = React.lazy(() => import('./components/examples/Blog3'));
 
 function App() {
   return (
@@ -76,6 +80,38 @@ function App() {
               element={
                 <React.Suspense fallback={<>Blog</>}>
                   <BlogViewer />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/examples"
+              element={
+                <React.Suspense fallback={<>Collections</>}>
+                  <Collections />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/posts/dynamic-routing"
+              element={
+                <React.Suspense fallback={<>Blog1</>}>
+                  <Blog1 />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/posts/pre-render"
+              element={
+                <React.Suspense fallback={<>Blog2</>}>
+                  <Blog2 />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/posts/static-generation"
+              element={
+                <React.Suspense fallback={<>Blog3</>}>
+                  <Blog3 />
                 </React.Suspense>
               }
             />
