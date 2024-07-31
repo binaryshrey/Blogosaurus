@@ -4,7 +4,7 @@ import { UserAuth } from '../../hooks/AuthContext';
 import SkeletonLoader from '../utils/SkeletonLoader';
 import BlogCard from '../utils/BlogCard';
 
-import { getBlogsFromFirestore } from '../../utils/utils';
+import { getDraftBlogsFromFirestore } from '../../utils/utils';
 
 const BlogsDrafts = () => {
   const { user } = UserAuth();
@@ -17,7 +17,7 @@ const BlogsDrafts = () => {
     const fetchBlogs = async () => {
       try {
         const email = JSON.parse(localStorage.getItem('email'));
-        const fetchedBlogs = await getBlogsFromFirestore(email);
+        const fetchedBlogs = await getDraftBlogsFromFirestore(email);
         setBlogs(fetchedBlogs);
       } catch (error) {
         setError('Failed to fetch blogs');

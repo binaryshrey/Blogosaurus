@@ -12,6 +12,7 @@ const Register = React.lazy(() => import('./components/register/Register'));
 const Profile = React.lazy(() => import('./components/profile/Profile'));
 const Blogs = React.lazy(() => import('./components/blogs/Blogs'));
 const BlogEditor = React.lazy(() => import('./components/blogs/BlogEditor'));
+const BlogViewer = React.lazy(() => import('./components/blogs/BlogViewer'));
 const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
 
 function App() {
@@ -67,6 +68,14 @@ function App() {
                   <ProtectedRoute>
                     <BlogEditor />
                   </ProtectedRoute>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/blog/:blogID"
+              element={
+                <React.Suspense fallback={<>Blog</>}>
+                  <BlogViewer />
                 </React.Suspense>
               }
             />

@@ -6,6 +6,7 @@ import { Parser } from '@alkhipce/editorjs-react';
 import { EDITOR_JS_TOOLS, EDITOR_DEFAULT_VALUE } from './EditorConfig';
 import SnackAlert from '../utils/SnackAlert';
 import SaveBlogModal from '../utils/SaveBlogModal';
+import PublishBlogModal from '../utils/PublishBlogModal';
 
 const BlogEditor = () => {
   const { draftID } = useParams();
@@ -13,6 +14,7 @@ const BlogEditor = () => {
   const [draftData, setDraftData] = useState(localStorage.getItem('draftEditor') ? JSON.parse(localStorage.getItem('draftEditor')) : {});
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [openSaveBlogModal, setOpenSaveBlogModal] = React.useState(false);
+  const [openPublishBlogModal, setOpenPublishBlogModal] = React.useState(false);
 
   const handleSnackbarOpen = () => {
     setSnackbarOpen(true);
@@ -27,6 +29,14 @@ const BlogEditor = () => {
 
   const handleCloseSaveBlogModal = () => {
     setOpenSaveBlogModal(false);
+  };
+
+  const handleClickOpenPublishBlogModal = () => {
+    setOpenPublishBlogModal(true);
+  };
+
+  const handleClosePublishBlogModal = () => {
+    setOpenPublishBlogModal(false);
   };
 
   const handlePreviewMode = () => {
@@ -60,6 +70,15 @@ const BlogEditor = () => {
     }
   };
 
+  const handlePublishBlogFlow = () => {
+    if (previewMode) {
+      handleSnackbarOpen();
+    } else {
+      handleSave();
+      handleClickOpenPublishBlogModal();
+    }
+  };
+
   return (
     <>
       <div className="m-4">
@@ -75,7 +94,7 @@ const BlogEditor = () => {
               <button onClick={handleSaveBlogFlow} className="px-4 py-1 m-1 rounded-full border border-gray-500 text-gray-500 inline-flex items-center">
                 <span className="text-sm">Save</span>
               </button>
-              <button className="px-4 py-1.5 m-1 rounded-full bg-gray-600 text-white inline-flex items-center">
+              <button onClick={handlePublishBlogFlow} className="px-4 py-1.5 m-1 rounded-full bg-gray-600 text-white inline-flex items-center">
                 <span className="text-sm">Publish</span>
               </button>
             </div>
@@ -91,6 +110,7 @@ const BlogEditor = () => {
           )}
         </div>
         <SaveBlogModal open={openSaveBlogModal} handleClose={handleCloseSaveBlogModal} draftData={draftData} draftID={draftID} />
+        <PublishBlogModal open={openPublishBlogModal} handleClose={handleClosePublishBlogModal} draftData={draftData} draftID={draftID} />
         <SnackAlert open={snackbarOpen} message="Toggle to edit-mode to save blog as a draft!" severity="warning" onClose={handleSnackbarClose} />
       </div>
     </>

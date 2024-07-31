@@ -9,11 +9,16 @@ import Paper from '@mui/material/Paper';
 import { v4 as uuidv4 } from 'uuid';
 
 const BlogCard = ({ blog }) => {
-  let blogDraftURI = `/draft/${uuidv4()}`;
+  let blogURI = '';
+  if (blog.blogStatus === 'Published') {
+    blogURI = `/blog/${blog.blogID}`;
+  } else {
+    blogURI = `/draft/${blog.blogID}`;
+  }
 
   const openDraft = () => {
     localStorage.setItem('draftEditor', JSON.stringify(blog.blogContents));
-    window.open(blogDraftURI, '_blank');
+    window.open(blogURI, '_blank');
   };
 
   return (
