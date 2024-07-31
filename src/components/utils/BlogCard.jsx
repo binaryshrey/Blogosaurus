@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import blogBG from '../../assets/blogBG.png';
+import profileBG from '../../assets/profileBG.png';
 import Paper from '@mui/material/Paper';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,7 +26,7 @@ const BlogCard = ({ blog }) => {
     <Paper elevation={1} onClick={openDraft}>
       <Card sx={{ maxWidth: 320, widht: 320 }}>
         <CardActionArea>
-          <CardMedia component="img" sx={{ height: 200, width: 320 }} image={blogBG} alt="blog media" />
+          <CardMedia component="img" sx={{ height: 200, width: 320 }} image={profileBG} alt="blog media" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {blog.blogTitle}

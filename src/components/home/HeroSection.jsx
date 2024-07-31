@@ -51,7 +51,7 @@ const HeroSection = () => {
             <a href="https://github.com/binaryshrey/Blogosaurus" className="text-sm font-semibold leading-6 text-white">
               Github
             </a>
-            <a href="https://blogosaurus.vercel.app/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+            <a href="/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
               Examples
             </a>
             <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="text-sm font-semibold leading-6 text-white">
@@ -83,7 +83,9 @@ const HeroSection = () => {
                   <a href="https://github.com/binaryshrey/Chronos" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">
                     Github
                   </a>
-                  <a className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10 cursor-pointer">Example</a>
+                  <a href="/examples" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10 cursor-pointer">
+                    Example
+                  </a>
                   <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">
                     Contact
                   </a>
@@ -116,7 +118,7 @@ const HeroSection = () => {
             <a href="/login" className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
               Get started
             </a>
-            <a href="https://blogosaurus.vercel.app/" className="text-base font-semibold leading-7 text-white">
+            <a href="https://github.com/binaryshrey/Blogosaurus" className="text-base font-semibold leading-7 text-white">
               Learn more <span aria-hidden="true">→</span>
             </a>
           </div>

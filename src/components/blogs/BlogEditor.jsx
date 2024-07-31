@@ -1,5 +1,5 @@
 import logo from '../../assets/logo-dark.svg';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { createReactEditorJS } from 'react-editor-js';
 import { Parser } from '@alkhipce/editorjs-react';
@@ -84,7 +84,9 @@ const BlogEditor = () => {
       <div className="m-4">
         <div className="flex justify-between">
           <div>
-            <img src={logo} alt="Blogosaurus" className="h-8 w-auto m-1" />
+            <Link to="/dashboard">
+              <img src={logo} alt="Blogosaurus" className="h-8 w-auto m-1" />
+            </Link>
           </div>
           <div>
             <div>
