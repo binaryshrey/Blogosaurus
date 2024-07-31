@@ -4,11 +4,30 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import { createReactEditorJS } from 'react-editor-js';
 import { Parser } from '@alkhipce/editorjs-react';
 import { EDITOR_JS_TOOLS, EDITOR_DEFAULT_VALUE } from './EditorConfig';
+import SnackAlert from '../utils/SnackAlert';
+import SaveBlogModal from '../utils/SaveBlogModal';
 
 const BlogEditor = () => {
   const { draftID } = useParams();
   const [previewMode, setPreviewMode] = useState(false);
   const [draftData, setDraftData] = useState();
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [openSaveBlogModal, setOpenSaveBlogModal] = React.useState(false);
+
+  const handleSnackbarOpen = () => {
+    setSnackbarOpen(true);
+  };
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const handleClickOpenSaveBlogModal = () => {
+    setOpenSaveBlogModal(true);
+  };
+
+  const handleCloseSaveBlogModal = () => {
+    setOpenSaveBlogModal(false);
+  };
 
   const handlePreviewMode = () => {
     if (previewMode) {
@@ -29,7 +48,17 @@ const BlogEditor = () => {
   const handleSave = React.useCallback(async () => {
     const savedData = await editorCore.current.save();
     setDraftData(savedData);
+    console.log(savedData);
   }, []);
+
+  const handleSaveBlogFlow = () => {
+    if (previewMode) {
+      handleSnackbarOpen();
+    } else {
+      handleSave();
+      handleClickOpenSaveBlogModal();
+    }
+  };
 
   return (
     <>
@@ -43,7 +72,7 @@ const BlogEditor = () => {
               <button onClick={handlePreviewMode} className="px-4 py-1 m-1 rounded-full border border-gray-500 text-gray-500 inline-flex items-center">
                 <span className="text-sm">{previewMode ? 'Edit' : 'Preview'}</span>
               </button>
-              <button onClick={handleSave} className="px-4 py-1 m-1 rounded-full border border-gray-500 text-gray-500 inline-flex items-center">
+              <button onClick={handleSaveBlogFlow} className="px-4 py-1 m-1 rounded-full border border-gray-500 text-gray-500 inline-flex items-center">
                 <span className="text-sm">Save</span>
               </button>
               <button className="px-4 py-1.5 m-1 rounded-full bg-gray-600 text-white inline-flex items-center">
@@ -61,6 +90,8 @@ const BlogEditor = () => {
             </div>
           )}
         </div>
+        <SaveBlogModal open={openSaveBlogModal} handleClose={handleCloseSaveBlogModal} draftData={draftData} draftID={draftID} />
+        <SnackAlert open={snackbarOpen} message="Toggle to edit-mode to save blog as a draft!" severity="warning" onClose={handleSnackbarClose} />
       </div>
     </>
   );

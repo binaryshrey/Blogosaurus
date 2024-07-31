@@ -62,7 +62,7 @@ const Blogs = () => {
 
         <TabsBody>
           {tabs.map(({ value, desc }) => (
-            <TabPanel key={value} value={value}>
+            <TabPanel key={value} value={value} className="p-0">
               {desc}
             </TabPanel>
           ))}
