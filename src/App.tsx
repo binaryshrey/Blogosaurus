@@ -5,11 +5,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PageNotFound from './components/not-found/PageNotFound';
 import { AuthContextProvider } from './hooks/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import { ThemeProvider } from '@material-tailwind/react';
 
 const Login = React.lazy(() => import('./components/login/Login'));
 const Register = React.lazy(() => import('./components/register/Register'));
 const Profile = React.lazy(() => import('./components/profile/Profile'));
-const Blogs = React.lazy(() => import('./components/dashboard/Blogs'));
+const Blogs = React.lazy(() => import('./components/blogs/Blogs'));
+const BlogEditor = React.lazy(() => import('./components/blogs/BlogEditor'));
+const BlogViewer = React.lazy(() => import('./components/blogs/BlogViewer'));
 const Dashboard = React.lazy(() => import('./components/dashboard/Dashboard'));
 
 function App() {
@@ -49,10 +52,30 @@ function App() {
             <Route
               path="/dashboard"
               element={
-                <React.Suspense fallback={<>Dashboard</>}>
+                <React.Suspense fallback={<>Blogs</>}>
                   <ProtectedRoute>
-                    <Dashboard Component={Blogs} board={true} collections={false} settings={false} />
+                    <ThemeProvider>
+                      <Dashboard Component={Blogs} board={true} collections={false} settings={false} />
+                    </ThemeProvider>
                   </ProtectedRoute>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/draft/:draftID"
+              element={
+                <React.Suspense fallback={<>New Draft</>}>
+                  <ProtectedRoute>
+                    <BlogEditor />
+                  </ProtectedRoute>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/blog/:blogID"
+              element={
+                <React.Suspense fallback={<>Blog</>}>
+                  <BlogViewer />
                 </React.Suspense>
               }
             />

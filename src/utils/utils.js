@@ -39,3 +39,94 @@ export const saveUserDataIfNewUser = async (user) => {
       console.error('Error saving user data:', error);
     }
   };
+
+
+export const saveBlogAsDraftToFirestore = async (blog) => {
+  try{
+      await addDoc(collection(db, 'blogs'), {
+          blogID : blog.draftID,
+          blogTitle: blog.title,
+          blogDescription: blog.description,
+          blogContents : blog.contents,
+          blogAuthor : blog.author,
+          blogAuthorPhoto: blog.authorPhoto,
+          blogTimestamp : blog.timestamp,
+          blogAuthorEmail: blog.authorEmail,
+          blogStatus: 'Draft'
+      }, { merge: true });
+      console.log('Successfully saved blog as draft!');
+  }
+  catch (error) {
+    console.error('Error saving blog data:', error);
+  }
+};
+
+export const saveBlogAsPublishToFirestore = async (blog) => {
+  try{
+      await addDoc(collection(db, 'blogs'), {
+          blogID : blog.draftID,
+          blogTitle: blog.title,
+          blogDescription: blog.description,
+          blogContents : blog.contents,
+          blogAuthor : blog.author,
+          blogAuthorPhoto: blog.authorPhoto,
+          blogTimestamp : blog.timestamp,
+          blogAuthorEmail: blog.authorEmail,
+          blogStatus: 'Published'
+      }, { merge: true });
+      console.log('Successfully published blog!');
+  }
+  catch (error) {
+    console.error('Error saving blog data:', error);
+  }
+};
+
+
+export const getDraftBlogsFromFirestore = async (userEmail) => {
+  
+  try {
+    let blogs = [];
+
+    const blogsCollection = collection(db, 'blogs');
+    const blogsSnapshot = query(blogsCollection, where("blogAuthorEmail", "==", userEmail))
+    const doc_refs = await getDocs(blogsSnapshot);
+
+    doc_refs.forEach((doc) => {
+      blogs.push({
+        ...doc.data()
+      });
+    });
+    const draftBlogs = blogs.filter(blog => blog.blogStatus == 'Draft');
+    
+    return draftBlogs;
+    
+  } catch (error) {
+    console.error('Error getting blogs:', error);
+  }
+}
+
+
+
+
+export const getPublishedBlogsFromFirestore = async (userEmail) => {
+  
+  try {
+    let blogs = [];
+
+    const blogsCollection = collection(db, 'blogs');
+    const blogsSnapshot = query(blogsCollection, where("blogAuthorEmail", "==", userEmail))
+    const doc_refs = await getDocs(blogsSnapshot);
+
+    doc_refs.forEach((doc) => {
+      blogs.push({
+        ...doc.data()
+      });
+    });
+    const publishedBlogs = blogs.filter(blog => blog.blogStatus == 'Published');
+    
+    return publishedBlogs;
+    
+  } catch (error) {
+    console.error('Error getting blogs:', error);
+  }
+}
