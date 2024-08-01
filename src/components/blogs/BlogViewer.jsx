@@ -1,7 +1,8 @@
 import logo from '../../assets/logo-dark.svg';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Parser } from '@alkhipce/editorjs-react';
 import React, { useState, useEffect } from 'react';
+import logoLight from '../../assets/logo.svg';
 import { getPublishedBlogFromFirestoreWithoutSignIn } from '../../utils/utils';
 
 const BlogViewer = () => {
@@ -37,6 +38,14 @@ const BlogViewer = () => {
           <div></div>
         </div>
         <div className="mx-4 sm:mx-8 lg:mx-12 xl:mx-80">{!loading && <Parser data={draftData} />}</div>
+        <Link to="https://blogosaurus.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <div class="fixed bottom-0 right-0 m-4">
+            <div class="bg-black flex rounded-full items-center">
+              <img src={logoLight} alt="Blogosaurus" className="h-3 w-auto ml-2" />
+              <p className="text-white  px-2.5 py-1 shadow text-xs">Made with Blogosaurus</p>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
