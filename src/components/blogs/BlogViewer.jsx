@@ -4,6 +4,7 @@ import { Parser } from '@alkhipce/editorjs-react';
 import React, { useState, useEffect } from 'react';
 import logoLight from '../../assets/logo.svg';
 import { getPublishedBlogFromFirestoreWithoutSignIn } from '../../utils/utils';
+import { Helmet } from 'react-helmet';
 
 const BlogViewer = () => {
   const { blogID } = useParams();
@@ -30,6 +31,13 @@ const BlogViewer = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Blogosaurus</title>
+        <meta name="description" content="Publish blogs at the speed of light" />
+        <meta name="keywords" content="React, Blogs, Vercel, SEO" />
+        <meta property="og:title" content="Blogosaurus" />
+        <meta property="og:description" content="Publish blogs at the speed of light" />
+      </Helmet>
       <div className="m-4">
         <div className="flex justify-between">
           <div>
