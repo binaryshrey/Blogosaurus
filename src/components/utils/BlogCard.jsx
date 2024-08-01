@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import blogBG from '../../assets/blogBG.png';
-import profileBG from '../../assets/profileBG.png';
+import blogCard from '../../assets/blogCard.png';
 import Paper from '@mui/material/Paper';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,22 +22,23 @@ const BlogCard = ({ blog }) => {
     window.open(blogURI, '_blank');
   };
 
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  let date = new Date(blog.blogTimestamp);
+  let formattedDate = date.toLocaleDateString('en-US', options);
+
   return (
-    <Paper elevation={1} onClick={openDraft}>
-      <Card sx={{ maxWidth: 320, widht: 320 }}>
-        <CardActionArea>
-          <CardMedia component="img" sx={{ height: 200, width: 320 }} image={profileBG} alt="blog media" />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {blog.blogTitle}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {blog.blogAuthor}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Paper>
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onClick={openDraft}>
+      <img src={blogCard} alt="Blog Image" class="w-full rounded-t-lg object-cover" />
+      <div class="p-4">
+        <p class="text-gray-600"> {formattedDate}</p>
+        <h2 class="text-xl font-bold text-gray-800 mt-4"> {blog.blogTitle}</h2>
+        <p class="text-gray-700">{blog.blogAuthor}</p>
+      </div>
+    </div>
   );
 };
 export default BlogCard;
