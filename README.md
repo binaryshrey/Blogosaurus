@@ -39,7 +39,7 @@ service cloud.firestore {
     }
     match /blogs/{uid} {
       allow create: if request.auth != null;
-      allow read : if request.auth != null;
+      allow read 
       allow update, delete: if request.auth != null && request.auth.uid == uid;
     
     }
