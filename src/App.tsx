@@ -110,7 +110,7 @@ function App() {
               }
             />
             <Route
-              path="/examples"
+              path="/collections"
               element={
                 <React.Suspense fallback={<></>}>
                   <Collections />

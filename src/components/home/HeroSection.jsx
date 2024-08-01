@@ -51,8 +51,8 @@ const HeroSection = () => {
             <a href="https://github.com/binaryshrey/Blogosaurus" className="text-sm font-semibold leading-6 text-white">
               Github
             </a>
-            <a href="/examples" className="text-sm font-semibold leading-6 text-white cursor-pointer">
-              Examples
+            <a href="/collections" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+              Collections
             </a>
             <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="text-sm font-semibold leading-6 text-white">
               Contact
@@ -83,8 +83,8 @@ const HeroSection = () => {
                   <a href="https://github.com/binaryshrey/Blogosaurus" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">
                     Github
                   </a>
-                  <a href="/examples" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10 cursor-pointer">
-                    Example
+                  <a href="/collections" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10 cursor-pointer">
+                    Collections
                   </a>
                   <a href="https://in.linkedin.com/in/shreyanshsaurabh" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">
                     Contact

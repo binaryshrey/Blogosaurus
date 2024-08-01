@@ -19,7 +19,7 @@ const Dashboard = ({ Component, board, collections, analytics, settings }) => {
 
   const navigation = [
     { name: 'Blogs', href: '/dashboard', icon: HomeRoundedIcon, current: board },
-    { name: 'Collections', href: '/examples', icon: BookIcon, current: collections },
+    { name: 'Collections', href: '/collections', icon: BookIcon, current: collections },
     { name: 'Analytics', href: '/analytics', icon: InsertChartIcon, current: analytics },
     { name: 'Settings', href: '/settings', icon: SettingsRoundedIcon, current: settings },
   ];
