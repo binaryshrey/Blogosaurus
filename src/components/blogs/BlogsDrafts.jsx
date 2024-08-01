@@ -32,7 +32,7 @@ const BlogsDrafts = () => {
   return (
     <div>
       <div className="mt-8">
-        {loading && <SkeletonLoader variant="rectangular" height={150} width={300} />}
+        {loading && <SkeletonLoader variant="rectangular" height={300} width={500} />}
         {blogs.length === 0 && !loading && (
           <div className="flex justify-center mt-40">
             <img src={empty} alt="empty" height={200} width={200} />

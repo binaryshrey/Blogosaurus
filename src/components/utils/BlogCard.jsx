@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import blogBG from '../../assets/blogBG.png';
-import blogCard from '../../assets/blogCard.png';
+import blogCard from '../../assets/blogCard.webp';
 import Paper from '@mui/material/Paper';
 import { v4 as uuidv4 } from 'uuid';
 
